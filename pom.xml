@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>BBD2SpringbootAPI</artifactId>
+    <artifactId>springbootAPI</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>proyectov2</name>
     <description>proyectov2</description>

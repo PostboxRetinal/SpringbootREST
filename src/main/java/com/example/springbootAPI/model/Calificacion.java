@@ -1,4 +1,4 @@
-package com.example.proyectov2.model;
+package com.example.springbootAPI.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,16 +6,14 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Usuarios")
+@Document(collection = "Calificaciones")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class Usuario {
+public class Calificacion {
     @Id
-    private Integer id_usuario;
-    private String nombre;
-    private String carrera;
-    private String semestre;
+    private Integer id_calificacion;
+    private Integer id_curso;
+    private Double calificacion;
 
 }
