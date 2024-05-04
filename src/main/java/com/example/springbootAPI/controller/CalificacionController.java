@@ -1,14 +1,14 @@
 package com.example.springbootAPI.controller;
 
-import com.example.springbootAPI.exception.InvalidFieldsException;
 import com.example.springbootAPI.exception.FileNotFoundException;
+import com.example.springbootAPI.exception.InvalidFieldsException;
 import com.example.springbootAPI.model.Calificacion;
-import com.example.springbootAPI.model.Curso;
 import com.example.springbootAPI.service.SCalificacion;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
