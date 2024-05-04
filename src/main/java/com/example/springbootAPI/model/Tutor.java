@@ -14,5 +14,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Tutor {
     @Id
     private Integer id_tutor;
-    private String nombre_tutor;
+    private String nombre_tutor;;
 }

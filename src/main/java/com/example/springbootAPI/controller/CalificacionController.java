@@ -37,14 +37,14 @@ public class CalificacionController {
     @GetMapping("/{calificacionId}")
     public ResponseEntity<Calificacion> calificacionPorId(@PathVariable Integer calificacionId) {
         Calificacion calificacion = this.calificacionService.calificacionPorId(calificacionId)
-                .orElseThrow(() -> new FileNotFoundException("Error: No se encontró la calificacion con el id " + calificacionId));
+                .orElseThrow(() -> new FileNotFoundException("ERROR: No se encontró la calificacion con el id " + calificacionId));
         return ResponseEntity.ok(calificacion);
     }
     //Actualizar la información básica del curso
     @PutMapping("/{calificacionId}")
     public ResponseEntity<String> actualizarCalificacionPorId(@PathVariable Integer calificacionId, @RequestBody Calificacion calificacionData) {
         Calificacion calificacion = this.calificacionService.calificacionPorId(calificacionId)
-                .orElseThrow(() -> new FileNotFoundException("Error: No se encontró la calificacion con el id " + calificacionId));
+                .orElseThrow(() -> new FileNotFoundException("ERROR: No se encontró la calificacion con el id " + calificacionId));
         Double actualizarCalificacion = calificacionData.getCalificacion();
 
         if (actualizarCalificacion != null) {

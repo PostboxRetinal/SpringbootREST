@@ -19,7 +19,7 @@ public class ImpTutor implements STutor{
     @Override
     public String crearTutor(Tutor tutor){
         this.tutorRepository.save(tutor);
-        return "Tutor " + tutor.getNombre() + " creado";
+        return "Tutor " + tutor.getNombre_tutor() + " creado";
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ImpTutor implements STutor{
     @Override
     public String actualizarTutorPorId(Tutor tutor){
         this.tutorRepository.save(tutor);
-        return "Tutor " + tutor.getNombre() + " actualizado";
+        return "Tutor " + tutor.getNombre_tutor() + " actualizado";
     }
 
     @Override

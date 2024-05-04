@@ -12,7 +12,7 @@ public interface ITutor extends MongoRepository<Tutor, Integer> {
             "{'$lookup': {'from': 'Calificaciones', 'localField': 'Cursos._id', 'foreignField': 'id_curso', 'as': 'Cursos.Calificaciones'}}",
             "{'$unwind': '$Cursos.Calificaciones'}",
             "{'$match': {'Cursos.Calificaciones.calificacion': {'$gte': ?0}}}",
-            "{'$group': {'_id': {'_id': '$_id', 'nombre': '$nombre', 'facultad': '$facultad'}, 'Cursos': {'$push': '$Cursos'}}}",
-            "{'$project': {'_id': '$_id._id', 'nombre': '$_id.nombre', 'facultad': '$_id.facultad', 'tutor': 1, 'Cursos': 1}}"})
+            "{'$group': {'_id': {'_id': '$_id', 'nombre': '$nombre'}, 'Cursos': {'$push': '$Cursos'}}}",
+            "{'$project': {'_id': '$_id._id', 'nombre': '$_id.nombre', 'tutor': 1, 'Cursos': 1}}"})
     List<Tutor> listarCalificacionesMayoresAN(Double calificacion);
 }

@@ -42,12 +42,10 @@ public class TutorController {
     public ResponseEntity<String> actualizarTutorPorId(@PathVariable Integer tutorId, @RequestBody Tutor tutorData) {
         Tutor tutor = this.tutorService.tutorPorId(tutorId)
                 .orElseThrow(() -> new FileNotFoundException("ERROR: "));
-        String actualizarNombre = tutorData.getNombre();
-        String actualizarFacultad = tutorData.getFacultad();
+        String actualizarNombre = tutorData.getNombre_tutor();
 
-        if (actualizarNombre != null && !actualizarNombre.isEmpty() && actualizarFacultad != null && !actualizarFacultad.isEmpty()) {
-            tutor.setNombre(actualizarNombre);
-            tutor.setFacultad(actualizarFacultad);
+        if (actualizarNombre != null && !actualizarNombre.isEmpty()) {
+            tutor.setNombre_tutor(actualizarNombre);
             return new ResponseEntity<String>(tutorService.actualizarTutorPorId(tutor), HttpStatus.OK);
         } else {
             throw new InvalidFieldsException("Error: Campo. Por favor, ingrese un valor válido");
@@ -56,7 +54,7 @@ public class TutorController {
 
     @GetMapping("/TutorCursoCal/{calificacion}")
     public ResponseEntity<List<Tutor>> mostrarTutoresCalificacionesMayoresAN(@PathVariable Double calificacion) {
-        List<Tutor> tutores = tutorService.mostrarTutoresCalificacionesMayoresAN(calificacion);
+        List<Tutor> tutores = tutorService.mostrarCalificacionesMayoresAN(calificacion);
         return new ResponseEntity<>(tutores, HttpStatus.OK);
     }
 }
