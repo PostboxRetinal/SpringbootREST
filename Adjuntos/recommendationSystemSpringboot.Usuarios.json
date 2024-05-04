@@ -1,0 +1,21 @@
+[{
+  "_id": 192,
+  "nombre": "Mauricio",
+  "semestre": "Noveno",
+  "carrera": "Ingenieria Informática",
+  "_class": "com.example.springbootAPI.model.Usuario"
+},
+{
+  "_id": 201,
+  "nombre": "Julio",
+  "semestre": "Quinto",
+  "carrera": "Ingenieria Industrial",
+  "_class": "com.example.springbootAPI.model.Usuario"
+},
+{
+  "_id": 153,
+  "nombre": "Charlie",
+  "semestre": "Sexto",
+  "carrera": "Cine",
+  "_class": "com.example.springbootAPI.model.Usuario"
+}]

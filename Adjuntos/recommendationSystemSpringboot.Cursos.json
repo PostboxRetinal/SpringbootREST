@@ -1,0 +1,28 @@
+[{
+  "_id": 1,
+  "nombre": "Cálculo 2",
+  "categoria": "Ciencias Básicas",
+  "horas": 50,
+  "_class": "com.example.springbootAPI.model.Curso"
+},
+{
+  "_id": 136,
+  "nombre": "Fisica 1",
+  "categoria": "Ciencias Básicas",
+  "horas": 100,
+  "_class": "com.example.springbootAPI.model.Curso"
+},
+{
+  "_id": 174,
+  "nombre": "Pensamiento Sistémico",
+  "categoria": "Núcleo común",
+  "horas": 54,
+  "_class": "com.example.springbootAPI.model.Curso"
+},
+{
+  "_id": 343,
+  "nombre": "Ciberseguridad",
+  "categoria": "Comp Profesional",
+  "horas": 37,
+  "_class": "com.example.springbootAPI.model.Curso"
+}]

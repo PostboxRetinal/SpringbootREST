@@ -1,0 +1,18 @@
+[{
+  "_id": 10042,
+  "id_curso": 192,
+  "calificacion": 3,
+  "_class": "com.example.springbootAPI.model.Calificacion"
+},
+{
+  "_id": 10061,
+  "id_curso": 201,
+  "calificacion": 4,
+  "_class": "com.example.springbootAPI.model.Calificacion"
+},
+{
+  "_id": 10082,
+  "id_curso": 136,
+  "calificacion": 4.5,
+  "_class": "com.example.springbootAPI.model.Calificacion"
+}]
