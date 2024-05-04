@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SCurso {
+
     String crearCurso(Curso curso);
     List<Curso> listarCursos();
     Optional<Curso> cursoPorId(int cursoid);

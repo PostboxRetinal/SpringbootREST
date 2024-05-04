@@ -40,6 +40,6 @@ public class ImpCurso implements SCurso{
 
     @Override
     public List<Curso> mostrarCursosPorCalificacionMayoresAN(double calificacion){
-        return this.cursoRepository.listarCalificacionesMayoresAN(calificacion);
+        return this.cursoRepository.listarCursosCalificacionesMayoresAN(calificacion);
     }
 }
