@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @RestController
-@RequestMapping("/springbootAPI/calificaciones")
+@RequestMapping("/springbootapi/calificacion")
 @CrossOrigin
 public class CalificacionController {
     /**
