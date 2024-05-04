@@ -16,7 +16,7 @@ import java.util.List;
 public class TutorController {
     @Autowired
     private STutor tutorService;
-    //OPERACIONES CRUD
+    //CRUD OPS
     //CREATE
     @PostMapping("/")
     public ResponseEntity<String> crearTutor(@RequestBody Tutor tutor) {
@@ -29,11 +29,11 @@ public class TutorController {
         List<Tutor> tutores = tutorService.listarTutores();
         return new ResponseEntity<>(tutores, HttpStatus.OK);
     }
-    //READ2
+    //READ
     @GetMapping("/{tutorId}")
     public ResponseEntity<Tutor> tutorPorId(@PathVariable Integer tutorId) {
         Tutor tutor = this.tutorService.tutorPorId(tutorId)
-                .orElseThrow(() -> new FileNotFoundException("ERROR: No se encontró el tutor con el id " + tutorId));
+                .orElseThrow(() -> new FileNotFoundException("Error! No se encontró el curso con el id " + tutorId));
         return ResponseEntity.ok(tutor);
     }
 
@@ -41,7 +41,7 @@ public class TutorController {
     @PutMapping("/{tutorId}")
     public ResponseEntity<String> actualizarTutorPorId(@PathVariable Integer tutorId, @RequestBody Tutor tutorData) {
         Tutor tutor = this.tutorService.tutorPorId(tutorId)
-                .orElseThrow(() -> new FileNotFoundException("ERROR: No se encontró el tutor con el id " + tutorId));
+                .orElseThrow(() -> new FileNotFoundException("ERROR: "));
         String actualizarNombre = tutorData.getNombre();
         String actualizarFacultad = tutorData.getFacultad();
 
@@ -50,13 +50,13 @@ public class TutorController {
             tutor.setFacultad(actualizarFacultad);
             return new ResponseEntity<String>(tutorService.actualizarTutorPorId(tutor), HttpStatus.OK);
         } else {
-            throw new InvalidFieldsException("Error: Por favor, ingrese un valor válido");
+            throw new InvalidFieldsException("Error: Campo. Por favor, ingrese un valor válido");
         }
     }
 
     @GetMapping("/TutorCursoCal/{calificacion}")
-    public ResponseEntity<List<Tutor>> mostrarCalificacionesMayoresAN(@PathVariable Double calificacion) {
-        List<Tutor> tutores = tutorService.mostrarCalificacionesMayoresAN(calificacion);
+    public ResponseEntity<List<Tutor>> mostrarTutoresCalificacionesMayoresAN(@PathVariable Double calificacion) {
+        List<Tutor> tutores = tutorService.mostrarTutoresCalificacionesMayoresAN(calificacion);
         return new ResponseEntity<>(tutores, HttpStatus.OK);
     }
 }
