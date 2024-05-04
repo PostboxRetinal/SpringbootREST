@@ -51,7 +51,7 @@ public class CalificacionController {
             calificacion.setCalificacion(actualizarCalificacion);
             return new ResponseEntity<String>(calificacionService.actualizarCalPorId(calificacion), HttpStatus.OK);
         } else {
-            throw new InvalidFieldsException("ERROR: Campo. Por favor, ingrese un valor válido");
+            throw new InvalidFieldsException("ERROR: Campo inválido. Por favor, ingrese un valor válido");
         }
     }
 }

@@ -36,7 +36,7 @@ public class CursoController {
     @GetMapping("/{cursoId}")
     public ResponseEntity<Curso> cursoPorId(@PathVariable Integer cursoId) {
         Curso curso = this.cursoService.cursoPorId(cursoId)
-                .orElseThrow(() -> new FileNotFoundException("Error! No se encontró el curso con el id " + cursoId));
+                .orElseThrow(() -> new FileNotFoundException("ERROR: No se encontró el curso con el id " + cursoId));
         return ResponseEntity.ok(curso);
     }
 
@@ -44,7 +44,7 @@ public class CursoController {
     @PutMapping("/{cursoId}")
     public ResponseEntity<String> actualizarCursoPorId(@PathVariable Integer cursoId, @RequestBody Curso cursoData) {
         Curso curso = this.cursoService.cursoPorId(cursoId)
-                .orElseThrow(() -> new FileNotFoundException("Error!. No se encontró el curso con el id " + cursoId));
+                .orElseThrow(() -> new FileNotFoundException("ERROR: No se encontró el curso con el id " + cursoId));
         String actualizarNombre = cursoData.getNombre();
         String actualizarCategoria = cursoData.getCategoria();
 

@@ -34,7 +34,7 @@ public class UsuarioController {
     @GetMapping("/{usuarioId}")
     public ResponseEntity<Usuario> usuarioPorId(@PathVariable Integer usuarioId) {
         Usuario usuario = this.usuarioService.usuarioPorId(usuarioId)
-                .orElseThrow(() -> new FileNotFoundException("Error! No se encontró el curso con el id " + usuarioId));
+                .orElseThrow(() -> new FileNotFoundException("ERROR: No se encontró el usuario con el id " + usuarioId));
         return ResponseEntity.ok(usuario);
     }
 
@@ -42,7 +42,7 @@ public class UsuarioController {
     @PutMapping("/{usuarioId}")
     public ResponseEntity<String> actualizarUsuarioPorId(@PathVariable Integer usuarioId, @RequestBody Usuario usuarioData) {
         Usuario usuario = this.usuarioService.usuarioPorId(usuarioId)
-                .orElseThrow(() -> new FileNotFoundException("ERROR: " + usuarioId));
+                .orElseThrow(() -> new FileNotFoundException("ERROR: No se encontró el usuario con el id " + usuarioId));
         String actualizarNombre = usuarioData.getNombre();
         String actualizarCarrera = usuarioData.getCarrera();
 
@@ -51,7 +51,7 @@ public class UsuarioController {
             usuario.setCarrera(actualizarCarrera);
             return new ResponseEntity<String>(usuarioService.actualizarUsuarioPorId(usuario), HttpStatus.OK);
         } else {
-            throw new InvalidFieldsException("Error!");
+            throw new InvalidFieldsException("ERROR: Campo de contenido inválido. Por favor, ingresa un valor válido");
         }
     }
 }
