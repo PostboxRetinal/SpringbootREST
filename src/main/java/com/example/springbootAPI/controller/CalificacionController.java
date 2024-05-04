@@ -12,43 +12,46 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @RestController
-@RequestMapping("/springbootAPI/calificacion")
+@RequestMapping("/springbootAPI/calificaciones")
 @CrossOrigin
 public class CalificacionController {
+    /**
+     * Inyecto la dependencia de la clase SCalificacion
+     */
     @Autowired
-    private CalificacionService calificacionService;
+    private SCalificacion calificacionService;
 
     //Crear un calificacion
     @PostMapping("/")
-    public ResponseEntity<String> creaCalificacion(@RequestBody CalificacionModel calificacion) {
+    public ResponseEntity<String> creaCalificacion(@RequestBody Calificacion calificacion) {
         calificacionService.crearCalificacion(calificacion);
         return new ResponseEntity<String>(calificacionService.crearCalificacion(calificacion), HttpStatus.OK);
     }
     //Listar calificaciones
     @GetMapping("/")
-    public ResponseEntity<List<CalificacionModel>> listarCalificaciones() {
-        List<CalificacionModel> calificaciones = calificacionService.listarCalificaciones();
+    public ResponseEntity<List<Calificacion>> listarCalificaciones() {
+        List<Calificacion> calificaciones = calificacionService.listarCalificaciones();
         return new ResponseEntity<>(calificaciones, HttpStatus.OK);
     }
     //Consultar un calificacion por Id
     @GetMapping("/{calificacionId}")
-    public ResponseEntity<CalificacionModel> calificacionPorId(@PathVariable Integer calificacionId) {
-        CalificacionModel calificacion = this.calificacionService.calificacionPorId(calificacionId)
-                .orElseThrow(() -> new RecursoNoEncontradoException("Error! No se encontró el curso con el id " + calificacionId));
+    public ResponseEntity<Calificacion> calificacionPorId(@PathVariable Integer calificacionId) {
+        Calificacion calificacion = this.calificacionService.calificacionPorId(calificacionId)
+                .orElseThrow(() -> new FileNotFoundException("Error: No se encontró la calificacion con el id " + calificacionId));
         return ResponseEntity.ok(calificacion);
     }
     //Actualizar la información básica del curso
     @PutMapping("/{calificacionId}")
-    public ResponseEntity<String> actualizarCalificacionPorId(@PathVariable Integer calificacionId, @RequestBody CalificacionModel calificacionData) {
-        CalificacionModel calificacion = this.calificacionService.calificacionPorId(calificacionId)
-                .orElseThrow(() -> new RecursoNoEncontradoException("Error!. No se encontró el calificacion con el id " + calificacionId));
+    public ResponseEntity<String> actualizarCalificacionPorId(@PathVariable Integer calificacionId, @RequestBody Calificacion calificacionData) {
+        Calificacion calificacion = this.calificacionService.calificacionPorId(calificacionId)
+                .orElseThrow(() -> new FileNotFoundException("Error: No se encontró la calificacion con el id " + calificacionId));
         Double actualizarCalificacion = calificacionData.getCalificacion();
 
         if (actualizarCalificacion != null) {
             calificacion.setCalificacion(actualizarCalificacion);
             return new ResponseEntity<String>(calificacionService.actualizarCalPorId(calificacion), HttpStatus.OK);
         } else {
-            throw new CamposInvalidosException("Error!");
+            throw new InvalidFieldsException("ERROR: Campo. Por favor, ingrese un valor válido");
         }
     }
 }
